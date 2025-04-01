@@ -128,8 +128,6 @@ Los caracteres de entrada se clasifican en las siguientes categorías:
 
 La tabla de transiciones se implementa como un diccionario anidado en Python. A continuación se presenta una representación textual simplificada:
 
-Copiar
-
 `Estado 0 (Inicial):   - Dígito → Estado 1 (Entero)  - Letra → Estado 4 (Variable)  - '+' → Estado 8 (Suma)  - '-' → Estado 9 (Resta)  - '*' → Estado 10 (Multiplicación)  - '/' → Estado 16 (División/Comentario)  - '^' → Estado 11 (Potencia)  - '(' → Estado 12 (Paréntesis abre)  - ')' → Estado 13 (Paréntesis cierra)  - '=' → Estado 14 (Asignación)  - '.' → Estado 18 (Punto inicial)  - Espacio/Salto → Estado 0 (Permanece en inicial) Estado 1 (Entero):   - Dígito → Estado 1 (Sigue en Entero)  - '.' → Estado 2 (Punto después de dígito)  - 'E'/'e' → Estado 5 (Exponente)  - Espacio/Salto/Operadores/Paréntesis → Aceptar como Entero y transitar Estado 2 (Punto después de dígito):   - Dígito → Estado 3 (Real)  - Otro → Error (99) Estado 3 (Real):   - Dígito → Estado 3 (Sigue en Real)  - 'E'/'e' → Estado 5 (Exponente)  - Espacio/Salto/Operadores/Paréntesis → Aceptar como Real y transitar ... Estado 17 (Comentario):   - Cualquier caracter excepto salto de línea → Estado 17 (Sigue en Comentario)  - Salto de línea → Aceptar como Comentario y volver a Estado 0`
 
 ## Algoritmo de Análisis
